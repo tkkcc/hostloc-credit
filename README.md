@@ -5,7 +5,7 @@ hostloc空间刷分
 ## install
 
 ```sh
-npm install -g hostloc-credit
+npm i -g hostloc-credit
 ```
 
 ## run
