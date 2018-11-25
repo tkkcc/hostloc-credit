@@ -1,0 +1,30 @@
+{
+  "name": "hostloc-credit",
+  "description": "hostloc空间刷分",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkkcc/hostloc-credit.git"
+  },
+  "keywords": [
+    "hostloc"
+  ],
+  "author": "bilabila",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tkkcc/hostloc-credit/issues"
+  },
+  "homepage": "https://github.com/tkkcc/hostloc-credit#readme",
+  "dependencies": {
+    "form-data": "^2.3.3",
+    "got": "^9.3.2",
+    "node-schedule": "^1.3.0",
+    "schedule": "^0.5.0",
+    "tough-cookie": "^2.4.3"
+  }
+}
