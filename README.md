@@ -17,19 +17,20 @@ hostloc-credit username password
 hostloc-credit username password 2 3 3
 # 或(注意shell转义)
 hostloc-credit username password 2 3 3 \* \*
+# 后台
+nohup hostloc-credit username password 2 3 3&
 ```
-
-> ```
-> *    *    *    *    *    *
-> ┬    ┬    ┬    ┬    ┬    ┬
-> │    │    │    │    │    │
-> │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
-> │    │    │    │    └───── month (1 - 12)
-> │    │    │    └────────── day of month (1 - 31)
-> │    │    └─────────────── hour (0 - 23)
-> │    └──────────────────── minute (0 - 59)
-> └───────────────────────── second (0 - 59, OPTIONAL)
-> ```
+```
+# *    *    *    *    *    *
+# ┬    ┬    ┬    ┬    ┬    ┬
+# │    │    │    │    │    │
+# │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+# │    │    │    │    └───── month (1 - 12)
+# │    │    │    └────────── day of month (1 - 31)
+# │    │    └─────────────── hour (0 - 23)
+# │    └──────────────────── minute (0 - 59)
+# └───────────────────────── second (0 - 59, OPTIONAL)
+```
 
 ## install node&npm on debian
 

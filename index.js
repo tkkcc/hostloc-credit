@@ -2,8 +2,6 @@
 const got = require('got')
 const cookieJar = new (require('tough-cookie')).CookieJar()
 const body = new require('form-data')()
-body.append('username', process.argv[2])
-body.append('password', process.argv[3])
 const login = async () => {
   const url = 'https://www.hostloc.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1'
   const a = await got.post(url, { body, cookieJar })
@@ -23,11 +21,25 @@ const main = async () => {
   await login()
   const a = await credit()
   await space()
-  console.log(a + '=>' + (await credit()))
+  console.log(new Date() + ' ' + a + '=>' + (await credit()))
 }
-if (process.argv.length > 5) {
-  const schedule = require('schedule')
-  schedule.scheduleJob(process.argv.slice(4).join(' '), () => main())
+const argv = process.argv.slice(2)
+if (argv.length < 2) {
+  console.log(`# 立即刷分
+hostloc-credit username password
+# 每天3点3分2秒
+hostloc-credit username password 2 3 3
+# 或(注意shell转义)
+hostloc-credit username password 2 3 3 \* \*
+# 后台
+nohup hostloc-credit username password 2 3 3&`)
+  return
+}
+body.append('username', argv[0])
+body.append('password', argv[1])
+if (argv.length > 3) {
+  const cron = require('node-schedule').scheduleJob
+  cron(argv.slice(2).join(' '), () => main())
 } else {
   main()
 }
