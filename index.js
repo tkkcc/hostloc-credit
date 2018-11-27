@@ -12,32 +12,31 @@ const credit = async () => {
   return /积分: (\d+)/.exec(a.body)[1]
 }
 const space = async () => {
-  const start = Math.ceil(Math.random() * 32960)
+  const start = Math.ceil(Math.random() * 32950)
   const uid = [...Array(10).keys()].map(i => i + start)
-  const space = uid.map(i => got(`https://www.hostloc.com/space-uid-${i}.html`))
+  const space = uid.map(i => got(`https://www.hostloc.com/space-uid-${i}.html`,{ cookieJar }))
   await Promise.all(space)
 }
 const main = async () => {
   await login()
   const a = await credit()
   await space()
-  console.log(new Date() + ' ' + a + '=>' + (await credit()))
+  console.log(a + '=>' + (await credit()))
 }
 const argv = process.argv.slice(2)
 if (argv.length < 2) {
   console.log(`# 立即刷分
 hostloc-credit username password
-# 每天3点3分2秒
-hostloc-credit username password 2 3 3
-# 或(注意shell转义)
-hostloc-credit username password 2 3 3 \\* \\*
+# 每天3点3分2秒,注意转义
+hostloc-credit username password 2 3 3 \\* \\* \\*
+hostloc-credit username password '2 3 3 * * *'
 # 后台
-nohup hostloc-credit username password 2 3 3&`)
+nohup hostloc-credit username password 2 3 3 \\* \\* \\*&`)
   return
 }
 body.append('username', argv[0])
 body.append('password', argv[1])
-if (argv.length > 3) {
+if (argv.length > 2) {
   const cron = require('node-schedule').scheduleJob
   cron(argv.slice(2).join(' '), () => main())
 } else {

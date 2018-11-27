@@ -13,12 +13,11 @@ npm i -g hostloc-credit
 ```sh
 # 立即刷分
 hostloc-credit username password
-# 每天3点3分2秒
-hostloc-credit username password 2 3 3
-# 或(注意shell转义)
-hostloc-credit username password 2 3 3 \* \*
+# 每天3点3分2秒,注意转义
+hostloc-credit username password 2 3 3 \* \* \*
+hostloc-credit username password '2 3 3 * * *'
 # 后台
-nohup hostloc-credit username password 2 3 3&
+nohup hostloc-credit username password 2 3 3 \* \* \*&
 ```
 ```
 # *    *    *    *    *    *
