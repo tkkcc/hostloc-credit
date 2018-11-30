@@ -18,20 +18,25 @@ const space = async () => {
   await Promise.all(space)
 }
 const main = async () => {
-  await login()
-  const a = await credit()
-  await space()
-  console.log(a + '=>' + (await credit()))
+  try {
+    await login()
+    const a = await credit()
+    await space()
+    console.log(a + '=>' + (await credit()))
+  } catch (e) {
+    console.log(e)
+  }
 }
 const argv = process.argv.slice(2)
 if (argv.length < 2) {
   console.log(`# 立即刷分
 hostloc-credit username password
-# 每天3点3分2秒,注意转义
+# 每天3点3分2秒
 hostloc-credit username password 2 3 3 \\* \\* \\*
-hostloc-credit username password '2 3 3 * * *'
+# 每天1,9,17点3分2秒, 多次避免502时没刷到
+hostloc-credit username password '2 3 */8+1 * * *'
 # 后台
-nohup hostloc-credit username password 2 3 3 \\* \\* \\*&`)
+nohup hostloc-credit username password '59 59 */8+1 * * *'&`)
   return
 }
 body.append('username', argv[0])
