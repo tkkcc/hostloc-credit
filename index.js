@@ -14,7 +14,7 @@ const credit = async () => {
 const space = async () => {
   const start = Math.ceil(Math.random() * 32950)
   const uid = [...Array(10).keys()].map(i => i + start)
-  const space = uid.map(i => got(`https://www.hostloc.com/space-uid-${i}.html`,{ cookieJar }))
+  const space = uid.map(i => got(`https://www.hostloc.com/space-uid-${i}.html`, { cookieJar }))
   await Promise.all(space)
 }
 const main = async () => {
@@ -34,9 +34,9 @@ hostloc-credit username password
 # 每天3点3分2秒
 hostloc-credit username password 2 3 3 \\* \\* \\*
 # 每天1,9,17点3分2秒, 多次避免502时没刷到
-hostloc-credit username password '2 3 */8+1 * * *'
+hostloc-credit username password '2 3 1,9,17 * * *'
 # 后台
-nohup hostloc-credit username password '59 59 */8+1 * * *'&`)
+nohup hostloc-credit username password '59 59 */8 * * *'&`)
   return
 }
 body.append('username', argv[0])
