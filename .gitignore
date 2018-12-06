@@ -1,2 +1,4 @@
 node_modules/
 /yarn.lock
+/0.js
+/.vscode
