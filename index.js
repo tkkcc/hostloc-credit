@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+const fs = require('fs')
+const path = require('path')
+const { Script } = require('vm')
 const got = require('got')
 const cookieJar = new (require('tough-cookie').CookieJar)()
 const FormData = require('form-data')
-const fs = require('fs')
-const { Script } = require('vm')
-const aes = fs.readFileSync('./aes.min.js') + ' '
+const aes = fs.readFileSync(path.join(__dirname, 'aes.min.js')) + ' '
 const { JSDOM } = require('jsdom')
 const login = async () => {
   let url =

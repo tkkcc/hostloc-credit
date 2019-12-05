@@ -1,7 +1,7 @@
 {
   "name": "hostloc-credit",
   "description": "hostloc空间刷分",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "form-data": "^3.0.0",
     "got": "^10.0.1",
+    "jsdom": "^15.2.1",
     "tough-cookie": "^3.0.1"
   },
   "bin": {
