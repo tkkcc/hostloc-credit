@@ -1,7 +1,7 @@
 {
   "name": "hostloc-credit",
   "description": "hostloc空间刷分",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/tkkcc/hostloc-credit#readme",
   "dependencies": {
-    "form-data": "^2.3.3",
-    "got": "^9.3.2",
-    "tough-cookie": "^2.4.3"
+    "form-data": "^3.0.0",
+    "got": "^10.0.1",
+    "tough-cookie": "^3.0.1"
   },
   "bin": {
     "hostloc-credit": "index.js"
